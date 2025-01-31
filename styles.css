@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global body background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0066B3; /* Israel Blue */
+    color: white;  /* Adjust text color to white for better visibility */
+  }
+  
+  .hero {
+    background: url('images/Header.png') no-repeat center center/cover;
+    background-color: #0066B3; /* Israel Blue as a fallback */
+    text-align: left;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  
+  /* Section background */
+  .about, .get-involved, .contact {
+    background-color: #0066B3; /* Israel Blue for each section */
+    color: white; /* Adjust text color to white */
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  /* Footer background */
+  footer {
+    background-color: #0066B3; /* Israel Blue */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+/* Style for the banner image above the navigation bar */
+.banner-image-container {
+    width: 100%;
+    overflow: hidden;
+   
+  }
+  
+  .banner-image {
+    width: 100%;  /* Makes the image fill the entire width */
+    height: auto; /* Maintain aspect ratio */
+  }
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero {
+  background: url('https://via.placeholder.com/1500x700') no-repeat center center/cover;
+  text-align: left;
+  color: white;
+  padding: 100px;
+}
+
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2em;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.btn-main, .btn-pdf {
+  background-color: #FF6600;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.btn-main:hover, .btn-pdf:hover {
+  background-color: #e65c00;
+}
+
+.about, .get-involved, .contact {
+max-width: 700px;
+margin: 0 auto;   
+font-size: 1.5em;
+padding: 50px 20px;
+text-align: left;
+}
+
+.get-involved ul {
+  list-style: none;
+  padding: 0;
+}
+
+.get-involved ul li {
+  margin-bottom: 10px;
+}
+/* Get Involved Section links */
+.get-involved a {
+    color: yellow;  /* Change links to yellow */
+    text-decoration: none; /* Remove underline by default */
+    font-weight: bold;
+  }
+  
+  .get-involved a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  .hero ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.5em;
+  }
+  
+  .hero ul li {
+    margin-bottom: 10px;
+  }
+  /* Get Involved Section links */
+  .hero a {
+      color: yellow;  /* Change links to yellow */
+      text-decoration: none; /* Remove underline by default */
+      font-weight: bold;
+      
+    }
+    
+    .hero a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    } 
+.contact form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact button {
+  padding: 10px;
+  background-color: #FF6600;
+  color: white;
+  border: none;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: #e65c00;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.language-switcher button {
+    font-size: 18px; /* Increase font size */
+    padding: 10px 20px; /* Increase button padding */
+    margin: 5px; /* Add some spacing between buttons */
+    background-color: #f1c40f; /* Set a background color (optional) */
+    color: #fff; /* Set text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Round corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+  }
+  
+  .language-switcher button:hover {
+    background-color: #e67e22; /* Change background color on hover (optional) */
+  }
+  h1 {
+    color: white; /* Set text color to white for contrast */
+    text-shadow: 
+      1px 1px 0px #f1c40f, /* Top-left shadow */
+      -1px -1px 0px #f1c40f, /* Bottom-right shadow */
+      1px -1px 0px #f1c40f, /* Bottom-left shadow */
+      -1px 1px 0px #f1c40f; /* Top-right shadow */
+  }
+  
