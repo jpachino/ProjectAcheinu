@@ -82,7 +82,7 @@ nav ul li a {
 
 
 .hero-content {
-  max-width: 700px;
+  /*max-width: 700px;*/
   margin: 0 auto;
 }
 
@@ -111,7 +111,7 @@ nav ul li a {
 }
 
 .about, .get-involved, .contact {
-max-width: 700px;
+/*max-width: 700px;*/
 margin: 0 auto;   
 font-size: 1.5em;
 padding: 50px 20px;
@@ -217,4 +217,21 @@ footer {
       1px -1px 0px #f1c40f, /* Bottom-left shadow */
       -1px 1px 0px #f1c40f; /* Top-right shadow */
   }
+  .inspiration-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
   
+  .shlomit-image {
+    max-width: 300px; /* Adjust the width as needed */
+    margin-left: 20px; /* Space between image and text */
+  }
+  
+  .english {
+    flex: 1; /* This allows the paragraph to take up the remaining space */
+  }
+  .flyer {
+    text-align:center;
+  }
