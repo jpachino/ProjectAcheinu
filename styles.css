@@ -246,3 +246,66 @@ footer {
   .flyer {
     text-align:center;
   }
+  /* Adjust layout for small screens */
+@media (max-width: 768px) {
+  /* Adjust the hero section to occupy more screen space */
+  .hero {
+    padding: 20px;
+    text-align: left;
+  }
+
+  /* Adjust the content sections */
+  .about, .get-involved, .contact {
+    padding: 20px;
+    text-align: left;
+    font-size: 1.3em; /* Adjust text size to fit better on smaller screens */
+    margin: 0 auto;
+  }
+
+  /* Allow the text to take up more space */
+  .about, .get-involved, .contact, .hero {
+    width: 90%;  /* Make content take up 90% of the width */
+    margin: 0 auto;
+  }
+
+  /* Adjust button sizes and margin */
+  .btn-main, .btn-pdf {
+    padding: 15px 25px;
+    font-size: 1.2em;
+  }
+
+  /* Adjust hero image list items */
+  .hero ul li {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+
+  /* Improve readability for Get Involved section */
+  .get-involved ul li {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust contact form input and text area width */
+  .contact input, .contact textarea {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  /* Ensure footer is visible and accessible on small screens */
+  footer {
+    padding: 15px;
+    font-size: 1.1em;
+  }
+
+  /* Style for language switcher */
+  .language-switcher button {
+    font-size: 16px;
+    padding: 12px 25px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 2em; /* Adjust heading size on smaller screens */
+  }
+}
