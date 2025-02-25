@@ -22,10 +22,10 @@
 
     /* Style the community list */
     .community-list {
-      font-size: 18px;
+      font-size: 24px;
       margin-bottom: 20px;
       padding-left: 20px; /* Move the list to the right by 10 points */
-      padding-right:20px;
+      padding-right: 20px;
     }
 
     .community-list li {
@@ -35,6 +35,12 @@
     /* Add space below the title */
     #communities h1 {
       margin-bottom: 30px;
+    }
+
+    /* Change the color of the specific text to yellow */
+    .yellow-text {
+      color: yellow;
+      margin-bottom: 20px; /* Adds space below the yellow text */
     }
   </style>
 </head>
@@ -60,9 +66,13 @@
       <h1 class="english">Involved Communities</h1>
       <h1 class="hebrew" style="display:none" dir="rtl">הקהילות המעורבות</h1>
 
-      <p class="english">Below is a list of communities involved in Project Acheinu. These communities are working together to bring unity to Am Yisrael.</p>
-      <p class="hebrew" style="display:none" dir="rtl">הנה רשימה של הקהילות המעורבות בפרויקט אחינו. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.</p>
+      <p class="english yellow-text">Below is a list of communities involved in Project Acheinu. These communities are working together to bring unity to Am Yisrael.</p>
+      
+      <!-- Empty paragraph for a blank line -->
+      <p></p>
 
+      <p class="hebrew yellow-text" style="display:none" dir="rtl">הנה רשימה של הקהילות המעורבות בפרויקט אחינו. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.</p>
+      <p></p>
       <!-- Community List -->
       <ul class="community-list english">
         <li>מצפה יריחו</li>
@@ -70,6 +80,7 @@
         <li>מודיעין</li>
         <li>צור הדסה</li>
         <li>רמת בית שמש - נווה שמיר</li>
+        <li>קהילות המשתתפות</li>
       </ul>
 
       <ul class="community-list hebrew" style="display:none" dir="rtl">
@@ -78,6 +89,7 @@
         <li>מודיעין</li>
         <li>צור הדסה</li>
         <li>רמת בית שמש - נווה שמיר</li>
+        <li>קהילות המשתתפות</li>
       </ul>
 
       <!-- Map Container -->
@@ -103,31 +115,6 @@
         hebrewText.forEach(el => el.style.display = 'block');
       }
     }
-
-    // Initialize the map
-    var map = L.map('map').setView([31.5, 34.75], 7); // Center of Israel (latitude, longitude)
-
-    // Use OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Add markers for the communities (optional)
-    const communities = [
-      { name: "מצפה יריחו", lat: 31.998, lon: 35.367 },
-      { name: "רמות ירושלים", lat: 31.783, lon: 35.201 },
-      { name: "מודיעין", lat: 31.902, lon: 35.012 },
-      { name: "צור הדסה", lat: 31.757, lon: 34.967 },
-      { name: "רמת בית שמש - נווה שמיר", lat: 31.737, lon: 34.992 }
-    ];
-
-    // Add each community to the map with a marker
-    communities.forEach(function(community) {
-      L.marker([community.lat, community.lon])
-        .addTo(map)
-        .bindPopup(`<b>${community.name}</b>`)
-        .openPopup();
-    });
   </script>
 </body>
 </html>

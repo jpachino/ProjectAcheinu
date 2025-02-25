@@ -315,3 +315,7 @@ footer {
   margin-bottom: 10px;
   padding-left: 20px; /* Move the list to the right by 10 points */
 }
+#communities {
+  margin-left : 30px;
+  margin-right: 30px;
+}
