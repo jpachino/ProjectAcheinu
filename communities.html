@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Communities Involved - Project Acheinu</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Leaflet.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+  <!-- Leaflet.js JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  
+  <style>
+    /* Set the size for the map container */
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+
+    /* Style the community list */
+    .community-list {
+      font-size: 18px;
+      margin-bottom: 20px;
+      padding-left: 20px; /* Move the list to the right by 10 points */
+      padding-right:20px;
+    }
+
+    .community-list li {
+      margin-bottom: 10px;
+    }
+
+    /* Add space below the title */
+    #communities h1 {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('he')">עברית</button>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li> <!-- Added Home link -->
+        <li><a href="communities.html">Involved Communities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="communities">
+      <h1 class="english">Involved Communities</h1>
+      <h1 class="hebrew" style="display:none" dir="rtl">הקהילות המעורבות</h1>
+
+      <p class="english">Below is a list of communities involved in Project Acheinu. These communities are working together to bring unity to Am Yisrael.</p>
+      <p class="hebrew" style="display:none" dir="rtl">הנה רשימה של הקהילות המעורבות בפרויקט אחינו. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.</p>
+
+      <!-- Community List -->
+      <ul class="community-list english">
+        <li>מצפה יריחו</li>
+        <li>רמות ירושלים</li>
+        <li>מודיעין</li>
+        <li>צור הדסה</li>
+        <li>רמת בית שמש - נווה שמיר</li>
+      </ul>
+
+      <ul class="community-list hebrew" style="display:none" dir="rtl">
+        <li>מצפה יריחו</li>
+        <li>רמות ירושלים</li>
+        <li>מודיעין</li>
+        <li>צור הדסה</li>
+        <li>רמת בית שמש - נווה שמיר</li>
+      </ul>
+
+      <!-- Map Container -->
+      <div id="map"></div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Project Acheinu. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function setLanguage(language) {
+      const englishText = document.querySelectorAll('.english');
+      const hebrewText = document.querySelectorAll('.hebrew');
+
+      if (language === 'en') {
+        englishText.forEach(el => el.style.display = 'block');
+        hebrewText.forEach(el => el.style.display = 'none');
+      } else {
+        englishText.forEach(el => el.style.display = 'none');
+        hebrewText.forEach(el => el.style.display = 'block');
+      }
+    }
+
+    // Initialize the map
+    var map = L.map('map').setView([31.5, 34.75], 7); // Center of Israel (latitude, longitude)
+
+    // Use OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add markers for the communities (optional)
+    const communities = [
+      { name: "מצפה יריחו", lat: 31.998, lon: 35.367 },
+      { name: "רמות ירושלים", lat: 31.783, lon: 35.201 },
+      { name: "מודיעין", lat: 31.902, lon: 35.012 },
+      { name: "צור הדסה", lat: 31.757, lon: 34.967 },
+      { name: "רמת בית שמש - נווה שמיר", lat: 31.737, lon: 34.992 }
+    ];
+
+    // Add each community to the map with a marker
+    communities.forEach(function(community) {
+      L.marker([community.lat, community.lon])
+        .addTo(map)
+        .bindPopup(`<b>${community.name}</b>`)
+        .openPopup();
+    });
+  </script>
+</body>
+</html>
