@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global body background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0066B3; /* Israel Blue */
+    color: white;  /* Adjust text color to white for better visibility */
+    direction: ltr; /* Default direction for English content */
+}
+
+/* For Hebrew text */
+.hebrew {
+    direction: rtl;
+    text-align: right; /* Align Hebrew text to the right */
+}
+
+/* Section background */
+.hero {
+    background: url('images/Header.png') no-repeat center center/cover;
+    background-color: #0066B3; /* Israel Blue as a fallback */
+    text-align: left;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Rest of the styles... */
+
+  
+  
+  /* Section background */
+  .about, .get-involved, .contact {
+    background-color: #0066B3; /* Israel Blue for each section */
+    color: white; /* Adjust text color to white */
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  /* Footer background */
+  footer {
+    background-color: #0066B3; /* Israel Blue */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+/* Style for the banner image above the navigation bar */
+.banner-image-container {
+    width: 100%;
+    overflow: hidden;
+   
+  }
+  
+  .banner-image {
+    width: 100%;  /* Makes the image fill the entire width */
+    height: auto; /* Maintain aspect ratio */
+  }
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero {
+  background: url('https://via.placeholder.com/1500x700') no-repeat center center/cover;
+  text-align: left;
+  color: white;
+  padding: 100px;
+}
+
+
+.hero-content {
+  /*max-width: 700px;*/
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2em;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.btn-main, .btn-pdf {
+  background-color: #FF6600;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.btn-main:hover, .btn-pdf:hover {
+  background-color: #e65c00;
+}
+
+.about, .get-involved, .contact {
+/*max-width: 700px;*/
+margin: 0 auto;   
+font-size: 1.5em;
+padding: 50px 20px;
+text-align: left;
+}
+
+.get-involved ul {
+  list-style: none;
+  padding: 0;
+}
+
+.get-involved ul li {
+  margin-bottom: 10px;
+}
+/* Get Involved Section links */
+.get-involved a {
+    color: yellow;  /* Change links to yellow */
+    text-decoration: none; /* Remove underline by default */
+    font-weight: bold;
+  }
+  
+  .get-involved a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  .hero ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.5em;
+  }
+  
+  .hero ul li {
+    margin-bottom: 10px;
+  }
+  /* Get Involved Section links */
+  .hero a {
+      color: yellow;  /* Change links to yellow */
+      text-decoration: none; /* Remove underline by default */
+      font-weight: bold;
+      
+    }
+    
+    .hero a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    } 
+.contact form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact button {
+  padding: 10px;
+  background-color: #FF6600;
+  color: white;
+  border: none;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background-color: #e65c00;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.language-switcher button {
+    font-size: 18px; /* Increase font size */
+    padding: 10px 20px; /* Increase button padding */
+    margin: 5px; /* Add some spacing between buttons */
+    background-color: #f1c40f; /* Set a background color (optional) */
+    color: #fff; /* Set text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Round corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+  }
+  
+  .language-switcher button:hover {
+    background-color: #e67e22; /* Change background color on hover (optional) */
+  }
+  h1 {
+    color: white; /* Set text color to white for contrast */
+    text-shadow: 
+      1px 1px 0px #f1c40f, /* Top-left shadow */
+      -1px -1px 0px #f1c40f, /* Bottom-right shadow */
+      1px -1px 0px #f1c40f, /* Bottom-left shadow */
+      -1px 1px 0px #f1c40f; /* Top-right shadow */
+  }
+  .inspiration-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .shlomit-image {
+    max-width: 300px; /* Adjust the width as needed */
+    margin-left: 20px; /* Space between image and text */
+  }
+  
+  .english {
+    flex: 1; /* This allows the paragraph to take up the remaining space */
+  }
+  .flyer {
+    text-align:center;
+  }
+  /* Adjust layout for small screens */
+@media (max-width: 768px) {
+  /* Adjust the hero section to occupy more screen space */
+  .hero {
+    padding: 20px;
+    text-align: left;
+  }
+
+  /* Adjust the content sections */
+  .about, .get-involved, .contact {
+    padding: 20px;
+    text-align: left;
+    font-size: 1.3em; /* Adjust text size to fit better on smaller screens */
+    margin: 0 auto;
+  }
+
+  /* Allow the text to take up more space */
+  .about, .get-involved, .contact, .hero {
+    width: 90%;  /* Make content take up 90% of the width */
+    margin: 0 auto;
+  }
+
+  /* Adjust button sizes and margin */
+  .btn-main, .btn-pdf {
+    padding: 15px 25px;
+    font-size: 1.2em;
+  }
+
+  /* Adjust hero image list items */
+  .hero ul li {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+
+  /* Improve readability for Get Involved section */
+  .get-involved ul li {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust contact form input and text area width */
+  .contact input, .contact textarea {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  /* Ensure footer is visible and accessible on small screens */
+  footer {
+    padding: 15px;
+    font-size: 1.1em;
+  }
+
+  /* Style for language switcher */
+  .language-switcher button {
+    font-size: 16px;
+    padding: 12px 25px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 2em; /* Adjust heading size on smaller screens */
+  }
+}
+/* Style the community list */
+.community-list {
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding-left: 20px; /* Move the list to the right by 10 points */
+}
+#communities {
+  margin-left : 30px;
+  margin-right: 30px;
+}
+/* Gallery Section */
+.gallery {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-item {
+  width: 36%; /* Increase the width to make items about 20% bigger */
+  text-align: center;
+  margin-bottom: 30px; /* Space below each item */
+}
+
+.gallery-img {
+  width: 100%; /* Makes the image fill the container's width */
+  height: 300px; /* Increased height by about 20% */
+  object-fit: cover; /* Ensures images fill the space while maintaining aspect ratio */
+  border-radius: 10px;
+}
+
+.gallery-item p {
+  margin-top: 20px; /* Space between image and text */
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsive design for gallery */
+@media (max-width: 768px) {
+  .gallery-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item {
+    width: 90%; /* Increased width for smaller screens */
+    margin-bottom: 40px;
+  }
+
+  .gallery-img {
+    height: 250px; /* Adjusted height for smaller screens */
+  }
+
+  .gallery-item p {
+    margin-top: 15px;
+  }
+}
+
+
+

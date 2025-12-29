@@ -16,23 +16,26 @@
 
   <!-- Image above the navigation bar -->
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="communities.html">Involved Communities</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#home"><span class="english">Home</span><span class="hebrew" style="display:none">בית</span></a></li>
+      <li><a href="communities.html"><span class="english">Involved Communities</span><span class="hebrew" style="display:none">קהילות משתתפות</span></a></li>
+      <li><a href="testimonials.html"><span class="english">Pictures and Testimonials</span><span class="hebrew" style="display:none">תמונות ופיידבק</span></a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <main>
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-      <!-- <img src="images/Header.png" alt="Charitable Project Banner" class="banner-image"><br><br>
-        <h1 class="english">Project Acheinu Testimonials</h1>
-        <h1 class="hebrew" style="display:none" dir="rtl">המלצות על פרויקט אחינו</h1>-->
-
+  <img src="images/Header.png" alt="Charitable Project Banner" class="banner-image"><br><br>
+  
+  <h1>
+    <span class="english">Project Acheinu Testimonials 2025</span>
+    <span class="hebrew" style="display:none">המלצות על פרויקט אחינו פורים תשפ"ה</span>
+  </h1>
         <p class="english">Read what people from different communities have to say about their experience with Project Acheinu. Hear about the connections, the unity, and the joy that this project has brought to people all across the country!</p>
 
         <p class="hebrew" style="display:none" dir="rtl">קראו מה יש לאנשים מקהילות שונות לומר על חוויתם עם פרויקט אחינו. שמעו על החיבורים, האחדות והשמחה שהביא פרויקט זה לאנשים ברחבי הארץ!</p><br>
@@ -148,18 +151,25 @@
   </footer>
 
   <script>
-    function setLanguage(language) {
-      const englishText = document.querySelectorAll('.english');
-      const hebrewText = document.querySelectorAll('.hebrew');
+  function setLanguage(language) {
+    const englishText = document.querySelectorAll('.english');
+    const hebrewText = document.querySelectorAll('.hebrew');
 
-      if (language === 'en') {
-        englishText.forEach(el => el.style.display = 'block');
-        hebrewText.forEach(el => el.style.display = 'none');
-      } else {
-        englishText.forEach(el => el.style.display = 'none');
-        hebrewText.forEach(el => el.style.display = 'block');
-      }
+    if (language === 'en') {
+      englishText.forEach(el => {
+        // Spans stay inline (for nav bar), others become block
+        el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+      });
+      hebrewText.forEach(el => el.style.display = 'none');
+      document.body.dir = "ltr";
+    } else {
+      englishText.forEach(el => el.style.display = 'none');
+      hebrewText.forEach(el => {
+        el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+      });
+      document.body.dir = "rtl";
     }
-  </script>
+  }
+</script>
 </body>
 </html>

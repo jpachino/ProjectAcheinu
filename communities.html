@@ -53,26 +53,26 @@
 
   <!-- Navigation Bar -->
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="communities.html">Involved Communities</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#home"><span class="english">Home</span><span class="hebrew" style="display:none">בית</span></a></li>
+      <li><a href="communities.html"><span class="english">Involved Communities</span><span class="hebrew" style="display:none">קהילות משתתפות</span></a></li>
+      <li><a href="testimonials.html"><span class="english">Pictures and Testimonials</span><span class="hebrew" style="display:none">תמונות ופיידבק</span></a></li>
+    </ul>
+  </nav>
+</header>
 
   <main>
     <section id="communities">
-      <h1 class="english">Involved Communities</h1>
-      <h1 class="hebrew" style="display:none" dir="rtl">קהילות המשתתפות</h1>
+      <h1 class="english">Involved Communities Purim 2025</h1>
+      <h1 class="hebrew" style="display:none" dir="rtl">הילות המשתתה פורים תשפ"ה</h1> </h1>
 
-      <p class="english yellow-text">Below is a list of communities involved in Project Acheinu. These communities are working together to bring unity to Am Yisrael.</p>
+      <p class="english yellow-text">Below is a list of communities involved in Project Acheinu Purim 2025. These communities are working together to bring unity to Am Yisrael.</p>
       
       <!-- Empty paragraph for a blank line -->
       <p></p>
 
-      <p class="hebrew yellow-text" style="display:none" dir="rtl">הנה רשימה של הקהילות המשתתפות בפרויקט אחינו. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.</p>
+      <p class="hebrew yellow-text" style="display:none" dir="rtl">הנה רשימה של הקהילות המשתתפות בפרויקט אחינו פורים תשפ"ה. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.</p>
       <p></p>
       <!-- Community List -->
       <ul class="community-list english">
@@ -123,11 +123,19 @@
       const hebrewText = document.querySelectorAll('.hebrew');
 
       if (language === 'en') {
-        englishText.forEach(el => el.style.display = 'block');
+        englishText.forEach(el => {
+          // Use 'inline' for spans inside links, 'block' for headings/paragraphs
+          el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
+        });
         hebrewText.forEach(el => el.style.display = 'none');
+        document.body.dir = "ltr"; // Keeps layout left-to-right
       } else {
         englishText.forEach(el => el.style.display = 'none');
-        hebrewText.forEach(el => el.style.display = 'block');
+        hebrewText.forEach(el => {
+          // Use 'inline' for spans inside links, 'block' for headings/paragraphs
+          el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
+        });
+        document.body.dir = "rtl"; // Flips layout right-to-left for Hebrew
       }
     }
   </script>
