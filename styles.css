@@ -372,6 +372,24 @@ footer {
     margin-top: 15px;
   }
 }
+/* If Hebrew is saved, hide English and show Hebrew as the page loads */
+.lang-he .english {
+  display: none;
+}
+.lang-he .hebrew {
+  display: block;
+}
+.lang-he span.hebrew {
+  display: inline;
+}
 
-
-
+/* If English is saved, hide Hebrew and show English as the page loads */
+.lang-en .hebrew {
+  display: none;
+}
+.lang-en .english {
+  display: block;
+}
+.lang-en span.english {
+  display: inline;
+}

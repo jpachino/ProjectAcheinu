@@ -3,113 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Communities Involved - Project Acheinu</title>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Leaflet.js CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
-  <!-- Leaflet.js JS -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   
   <style>
-    /* Set the size for the map container */
-    #map {
-      height: 500px;
-      width: 100%;
-    }
-
-    /* Style the community list */
-    .community-list {
-      font-size: 24px;
-      margin-bottom: 20px;
-      padding-left: 20px; /* Move the list to the right by 10 points */
-      padding-right: 20px;
-    }
-
-    .community-list li {
-      margin-bottom: 10px;
-    }
-
-    /* Add space below the title */
-    #communities h1 {
-      margin-bottom: 30px;
-    }
-
-    /* Change the color of the specific text to yellow */
-    .yellow-text {
-      color: yellow;
-      margin-bottom: 20px; /* Adds space below the yellow text */
-    }
+    #map { height: 500px; width: 100%; }
+    .community-list { font-size: 24px; margin-bottom: 20px; padding: 0 20px; }
+    .community-list li { margin-bottom: 10px; }
+    #communities h1 { margin-bottom: 30px; }
+    .yellow-text { color: yellow; margin-bottom: 20px; }
   </style>
+
+  <script>
+    const translations = {
+      en: {
+        navHome: "Home",
+        navComm: "Involved Communities",
+        navTest: "Pictures and Testimonials",
+        commTitle: "Involved Communities Purim 2025",
+        commSub: "Below is a list of communities involved in Project Acheinu Purim 2025. These communities are working together to bring unity to Am Yisrael.",
+        list: [
+          "Mitzpei Yericho", "Ramot Yerushalyim", "Modiin", "Tzor Hadassah", 
+          "Neve Shamir - Ramat Beit Shemesh", "Rechovot", "Fairlawn New Jersey", 
+          "Ariel", "Kedem Arava", "Bet Chogla", "Efrat", "Carmei Gat"
+        ]
+      },
+      he: {
+        navHome: "בית",
+        navComm: "קהילות משתתפות",
+        navTest: "תמונות ופיידבק",
+        commTitle: "קהילות משתתפות פורים תשפ\"ה",
+        commSub: "הנה רשימה של הקהילות המשתתפות בפרויקט אחינו פורים תשפ\"ה. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.",
+        list: [
+          "מצפה יריחו", "רמות ירושלים", "מודיעין", "צור הדסה", 
+          "רמת בית שמש - נווה שמיר", "רחובות", "ניו גרסי", 
+          "אריאל", "קדם ערבה", "בית חגלה", "אפרת", "כרמי גת"
+        ]
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('preferredLanguage', lang);
+      document.documentElement.lang = lang;
+      document.body.dir = (lang === 'he') ? 'rtl' : 'ltr';
+
+      // Update static text elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      // Update the community list dynamically
+      const listContainer = document.getElementById('community-items');
+      listContainer.innerHTML = ''; // Clear existing
+      translations[lang].list.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = item;
+        listContainer.appendChild(li);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      setLanguage(savedLanguage);
+    });
+  </script>
 </head>
 <body>
-  <!-- Language Switcher -->
+
   <div class="language-switcher">
     <button onclick="setLanguage('en')">English</button>
     <button onclick="setLanguage('he')">עברית</button>
   </div>
 
-  <!-- Navigation Bar -->
   <header>
-  <nav>
-    <ul>
-      <li><a href="#home"><span class="english">Home</span><span class="hebrew" style="display:none">בית</span></a></li>
-      <li><a href="communities.html"><span class="english">Involved Communities</span><span class="hebrew" style="display:none">קהילות משתתפות</span></a></li>
-      <li><a href="testimonials.html"><span class="english">Pictures and Testimonials</span><span class="hebrew" style="display:none">תמונות ופיידבק</span></a></li>
-    </ul>
-  </nav>
-</header>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-i18n="navHome">Home</a></li>
+        <li><a href="communities.html" data-i18n="navComm">Involved Communities</a></li>
+        <li><a href="testimonials.html" data-i18n="navTest">Pictures and Testimonials</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <section id="communities">
-      <h1 class="english">Involved Communities Purim 2025</h1>
-      <h1 class="hebrew" style="display:none" dir="rtl">הילות המשתתה פורים תשפ"ה</h1> </h1>
-
-      <p class="english yellow-text">Below is a list of communities involved in Project Acheinu Purim 2025. These communities are working together to bring unity to Am Yisrael.</p>
+      <h1 data-i18n="commTitle">Involved Communities Purim 2025</h1>
+      <p class="yellow-text" data-i18n="commSub">Below is a list of communities involved in Project Acheinu Purim 2025...</p>
       
-      <!-- Empty paragraph for a blank line -->
-      <p></p>
+      <ul id="community-items" class="community-list">
+        </ul>
 
-      <p class="hebrew yellow-text" style="display:none" dir="rtl">הנה רשימה של הקהילות המשתתפות בפרויקט אחינו פורים תשפ"ה. קהילות אלו פועלות יחד כדי להביא אחדות לעם ישראל.</p>
-      <p></p>
-      <!-- Community List -->
-      <ul class="community-list english">
-        <li>Mitzpei Yericho</li>
-        <li>Ramot Yerushalyim</li>
-        <li>Modiin</li>
-        <li>Tzor Hadassah</li>
-        <li>Neve Shamir - Ramat Beit Shemesh</li>
-        <li>Rechovot</li>
-        <li>Fairlawn New Jersey</li>
-        <li>Ariel</li>
-        <li>Kedem Arava</li>
-        <li>Bet Chogla</li>
-        <li>Efrat</li>
-        <li>Carmei Gat</li>
-        
-      </ul>
-
-      <ul class="community-list hebrew" style="display:none" dir="rtl">
-        <li>מצפה יריחו</li>
-        <li>רמות ירושלים</li>
-        <li>מודיעין</li>
-        <li>צור הדסה</li>
-        <li>רמת בית שמש - נווה שמיר</li>
-        <li>רחובות</li>
-        <li>ניו גרסי</li>
-        <li>אריאל</li>
-        <li>קדם ערבה</li>
-        <li>בית חגלה</li>
-        <li>אפרת</li>
-        <li>כרמי גת</li>
-        
-      </ul>
-
-      <!-- Map Container -->
       <div id="map"></div>
-
     </section>
   </main>
 
@@ -118,26 +107,8 @@
   </footer>
 
   <script>
-    function setLanguage(language) {
-      const englishText = document.querySelectorAll('.english');
-      const hebrewText = document.querySelectorAll('.hebrew');
-
-      if (language === 'en') {
-        englishText.forEach(el => {
-          // Use 'inline' for spans inside links, 'block' for headings/paragraphs
-          el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
-        });
-        hebrewText.forEach(el => el.style.display = 'none');
-        document.body.dir = "ltr"; // Keeps layout left-to-right
-      } else {
-        englishText.forEach(el => el.style.display = 'none');
-        hebrewText.forEach(el => {
-          // Use 'inline' for spans inside links, 'block' for headings/paragraphs
-          el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
-        });
-        document.body.dir = "rtl"; // Flips layout right-to-left for Hebrew
-      }
-    }
+    // Your existing Leaflet Map initialization code should go here
+    // var map = L.map('map').setView([31.0461, 34.8516], 8); ...
   </script>
 </body>
 </html>

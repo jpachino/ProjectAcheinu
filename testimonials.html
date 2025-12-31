@@ -3,143 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Project Acheinu Testimonials</title>
   <link rel="stylesheet" href="styles.css">
+  
+  <script>
+    const translations = {
+      en: {
+        navHome: "Home",
+        navComm: "Involved Communities",
+        navTest: "Pictures and Testimonials",
+        testTitle: "Project Acheinu Testimonials 2025",
+        testSub: "Read what people from different communities have to say about their experience with Project Acheinu. Hear about the connections, the unity, and the joy that this project has brought to people all across the country!",
+        txtMitzpei: "Mitzpei Yericho and Almog",
+        txtVered: "Vered Yericho and Beit Chogla",
+        txtMishloach: "Sharing Mishloach Manot",
+        txtMoatza: "Moatza Megilot and Yam Hamelech",
+        txtCarmei: "Carmei Gat",
+        quote1: "\"Hello. I hope you had a happy Purim. We wanted to tell you that we went as a family to Beit Hakerem to distribute mishlochim. It made Purim for us. Thank you for granting us this mitzvah. People were really happy, whether it was an 80+ year old, a 16 year old boy who said it was the first time he had ever received a mishlochim in his life, a woman who was so moved by the fact that people were thinking of others that she went out into the street to hug our mother. We spoke as a family and said that one day we would adopt this idea as a permanent custom on Purim without a vow in memory of Reuven the Great.\"",
+        quote1Sig: "- A message from a family who participated from Kiryat Moshe to the organizers.",
+        quote2: "\"Happy holiday everyone! This was a great initiative! I'm all for making it a tradition😊\"",
+        quote3: "\"Good luck! Thanks to the lovely company who came to us yesterday to make everyone happy with cakes and cookies ❤❤❤😊😊😊 Happy Purim!!\"",
+        quote4: "\"Exciting to see! Happy Purim 🥳🎊\"",
+        quote5: "\"Thank you to the sweet residents who came to celebrate Purim 💞\"",
+        sigMoatza: "- Moatza Megilot Yam Hamelach Participant"
+      },
+      he: {
+        navHome: "בית",
+        navComm: "קהילות משתתפות",
+        navTest: "תמונות ופיידבק",
+        testTitle: "המלצות על פרויקט אחינו פורים תשפ\"ה",
+        testSub: "קראו מה יש לאנשים מקהילות שונות לומר על חוויתם עם פרויקט אחינו. שמעו על החיבורים, האחדות והשמחה שהביא פרויקט זה לאנשים ברחבי הארץ!",
+        txtMitzpei: "מצפה יריחו ואלמוג",
+        txtVered: "ורד יריחו ובית חוגלה",
+        txtMishloach: "הענקת משלוח מנות",
+        txtMoatza: "מואצה מגילות וים המלך",
+        txtCarmei: "כרמי גת",
+        quote1: "שלום. מקווה שהיה לכם פורים שמח. רצינו להגיד לכם שהלכנו כמשפחה לבית הכרם לחלק משלוחים. זה עשה לנו את הפורים. תודה שזיכיתם אותנו במצוה הזו. אנשים ממש שמחו בין אם זה היה מבוגר בן 80+, נער בן 16 שאמר שזה פעם ראשונה שהוא קיבל משלוח מנות בחיים, אשה שכל כך התרגשה מזה שאנשים חושבים על אחרים שיצאה לרחוב לחבק את אמא שלנו. דיברנו כמשפחה ואמרנו שבע''ה נאמץ את הרעיון הזה כמנהג קבוע בפורים בלי נדר לזכרו של ראובן הי''ד.",
+        quote1Sig: "- הודעה ממשפחה שהשתתפה מקריית משה למארגנים.",
+        quote2: "\"חג שמח לכולם! זו היתה יוזמה נהדרת! אני בעד להפוך למסורת😊\"",
+        quote3: "\"בוקר טוב! תודה לחברה מקדם ערבה המקסימים שהגיעו אלינו אתמול לשמח את כולם עם עוגות ועוגיות ❤❤❤😊😊😊 פורים שמח!!\"",
+        quote4: "\"מרגש לראות! פורים שמח 🥳🎊\"",
+        quote5: "\"תודה לתושבי הקליה המתוקים שבאו לשמח ביום פורים 💞\"",
+        sigMoatza: "- משתתף מואצה מגילות ים המלח"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('preferredLanguage', lang);
+      document.documentElement.lang = lang;
+      document.body.dir = (lang === 'he') ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      setLanguage(savedLanguage);
+    });
+  </script>
 </head>
 <body>
-  <!-- Language Switcher -->
+
   <div class="language-switcher">
     <button onclick="setLanguage('en')">English</button>
     <button onclick="setLanguage('he')">עברית</button>
   </div>
 
-  <!-- Image above the navigation bar -->
   <header>
-  <nav>
-    <ul>
-      <li><a href="#home"><span class="english">Home</span><span class="hebrew" style="display:none">בית</span></a></li>
-      <li><a href="communities.html"><span class="english">Involved Communities</span><span class="hebrew" style="display:none">קהילות משתתפות</span></a></li>
-      <li><a href="testimonials.html"><span class="english">Pictures and Testimonials</span><span class="hebrew" style="display:none">תמונות ופיידבק</span></a></li>
-    </ul>
-  </nav>
-</header>
-
+    <nav>
+      <ul>
+        <li><a href="index.html" data-i18n="navHome">Home</a></li>
+        <li><a href="communities.html" data-i18n="navComm">Involved Communities</a></li>
+        <li><a href="testimonials.html" data-i18n="navTest">Pictures and Testimonials</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
       <div class="hero-content">
-  <img src="images/Header.png" alt="Charitable Project Banner" class="banner-image"><br><br>
-  
-  <h1>
-    <span class="english">Project Acheinu Testimonials 2025</span>
-    <span class="hebrew" style="display:none">המלצות על פרויקט אחינו פורים תשפ"ה</span>
-  </h1>
-        <p class="english">Read what people from different communities have to say about their experience with Project Acheinu. Hear about the connections, the unity, and the joy that this project has brought to people all across the country!</p>
+        <img src="images/Header.png" alt="Banner" class="banner-image"><br><br>
+        
+        <h1 data-i18n="testTitle">Project Acheinu Testimonials 2025</h1>
+        <p data-i18n="testSub">Read what people from different communities have to say about their experience with Project Acheinu...</p>
 
-        <p class="hebrew" style="display:none" dir="rtl">קראו מה יש לאנשים מקהילות שונות לומר על חוויתם עם פרויקט אחינו. שמעו על החיבורים, האחדות והשמחה שהביא פרויקט זה לאנשים ברחבי הארץ!</p><br>
         <section class="gallery">
-            <div class="gallery-container">
+          <div class="gallery-container">
             <div class="gallery-item">
-                <img src="images/MitzpeiYerichoandAlmog.jpg" alt="Mitzpei Yericho and Almog" class="gallery-img">
-                <p class="english">Mitzpei Yericho and Almog</p>
-                <p class="hebrew" style="display:none" dir="rtl">  מצפה יריחו ואלמוג</p>
-              </div>
-              <div class="gallery-item">
-                <img src="images/Shaloch Manot.jpg" alt="Mitzpei Yericho and Almog" class="gallery-img">
-                <p class="english">Mitzpei Yericho and Almog</p>
-                <p class="hebrew" style="display:none" dir="rtl">  מצפה יריחו ואלמוג</p>
-              </div>
+              <img src="images/MitzpeiYerichoandAlmog.jpg" class="gallery-img">
+              <p data-i18n="txtMitzpei">Mitzpei Yericho and Almog</p>
             </div>
-            <div class="gallery-container">
-              <div class="gallery-item">
-                <img src="images/Vered Yericho and Beit Chogla.jpg" alt="Vered Yericho and Beit Chogla" class="gallery-img">
-                <p class="english">Vered Yericho and Beit Chogla</p>
-                <p class="hebrew" style="display:none" dir="rtl"> ורד יריחו ובית חוגלה</p>
-              </div>
-              <div class="gallery-item">
-                <img src="images/Shaloch Manot2.jpg" alt="Sharing Mishloach Manot" class="gallery-img">
-                <p class="english">Sharing Mishloach Manot</p>
-                <p class="hebrew" style="display:none" dir="rtl">הענקת משלוח מנות</p>
-              </div>
-              
+            <div class="gallery-item">
+              <img src="images/Shaloch Manot.jpg" class="gallery-img">
+              <p data-i18n="txtMitzpei">Mitzpei Yericho and Almog</p>
             </div>
+          </div>
 
-            <div class="gallery-container">
-                <div class="gallery-item">
-                  <img src="images/Acheinu in Yishuv Ariel.jpg" alt="Project Acheinu in Yishuv Ariel" class="gallery-img">
-                  <p class="english">Vered Yericho and Beit Chogla</p>
-                  <p class="hebrew" style="display:none" dir="rtl"> ורד יריחו ובית חוגלה</p>
-                </div>
-                <div class="gallery-item">
-                  <img src="images/Moatza Megilot Yam Hamelech.jpg" alt="Moatza Yam and Hamelech" class="gallery-img">
-                  <p class="english">Moatza Megilot and Yam Hamelech</p>
-                  <p class="hebrew" style="display:none" dir="rtl">מואצה מגילות וים המלך</p>
-                </div>
-                
-              </div>
+          <div class="gallery-container">
+            <div class="gallery-item">
+              <img src="images/Vered Yericho and Beit Chogla.jpg" class="gallery-img">
+              <p data-i18n="txtVered">Vered Yericho and Beit Chogla</p>
+            </div>
+            <div class="gallery-item">
+              <img src="images/Shaloch Manot2.jpg" class="gallery-img">
+              <p data-i18n="txtMishloach">Sharing Mishloach Manot</p>
+            </div>
+          </div>
 
+          <div class="gallery-container">
+            <div class="gallery-item">
+              <img src="images/Acheinu in Yishuv Ariel.jpg" class="gallery-img">
+              <p data-i18n="txtVered">Vered Yericho and Beit Chogla</p>
+            </div>
+            <div class="gallery-item">
+              <img src="images/Moatza Megilot Yam Hamelech.jpg" class="gallery-img">
+              <p data-i18n="txtMoatza">Moatza Megilot and Yam Hamelech</p>
+            </div>
+          </div>
 
-              <div class="gallery-container">
-                <div class="gallery-item">
-                  <img src="images/Carmei Gat cropped.jpg" alt="Carmei Gat" class="gallery-img">
-                  <p class="english">Carmei Gat</p>
-                  <p class="hebrew" style="display:none" dir="rtl">כרמי גת</p>
-                </div>
-                
-                <div class="gallery-item">
-                  <img src="images/carmei gat celebrate cropped.jpg" alt="Carmei Gat" class="gallery-img">
-                  <p class="english">Carmei Gat</p>
-                  <p class="hebrew" style="display:none" dir="rtl">כרמי גת</p>
-                </div>
-              </div>
-          </section>
-          
-        <!-- Testimonials Section -->
+          <div class="gallery-container">
+            <div class="gallery-item">
+              <img src="images/Carmei Gat cropped.jpg" class="gallery-img">
+              <p data-i18n="txtCarmei">Carmei Gat</p>
+            </div>
+            <div class="gallery-item">
+              <img src="images/carmei gat celebrate cropped.jpg" class="gallery-img">
+              <p data-i18n="txtCarmei">Carmei Gat</p>
+            </div>
+          </div>
+        </section>
+
         <section class="testimonials">
           <div class="testimonial">
-           <!-- <img src="images/testimonial1.jpg" alt="Kiryat Moshe participant" class="testimonial-img">-->
-            <p class="english">"Hello. I hope you had a happy Purim. We wanted to tell you that we went as a family to Beit Hakerem to distribute mishlochim. It made Purim for us. Thank you for granting us this mitzvah. People were really happy, whether it was an 80+ year old, a 16 year old boy who said it was the first time he had ever received a mishlochim in his life, a woman who was so moved by the fact that people were thinking of others that she went out into the street to hug our mother. We spoke as a family and said that one day we would adopt this idea as a permanent custom on Purim without a vow in memory of Reuven the Great."</p>
-            <p class="hebrew" style="display:none" dir="rtl">שלום. מקווה שהיה לכם פורים שמח. 
-                רצינו להגיד לכם שהלכנו כמשפחה לבית הכרם לחלק משלוחים. 
-                זה עשה לנו את הפורים. תודה שזיכיתם אותנו במצוה הזו. 
-                אנשים ממש שמחו בין אם זה היה מבוגר בן 80+, נער בן 16 שאמר שזה פעם ראשונה שהוא קיבל משלוח מנות בחיים, אשה שכל כך התרגשה מזה שאנשים חושבים על אחרים שיצאה לרחוב לחבק את אמא שלנו. 
-                דיברנו כמשפחה ואמרנו שבע''ה נאמץ את הרעיון הזה כמנהג קבוע בפורים בלי נדר לזכרו של ראובן הי''ד.</p>
-            <p class="english"><strong>- A message from a family who participated from Kiryat Moshe to the organizers.</strong></p>
+            <p data-i18n="quote1">"Hello. I hope you had a happy Purim..."</p>
+            <p><strong data-i18n="quote1Sig">- A message from a family...</strong></p>
           </div>
-
           <div class="testimonial">
-            
-            <p class="english">"Happy holiday everyone!
-                This was a great initiative!
-                I'm all for making it a tradition😊"</p>
-            <p class="hebrew" style="display:none" dir="rtl">"חג שמח לכולם!
-                זו היתה יוזמה נהדרת! 
-                אני בעד להפוך למסורת😊"</p>
-              
-            <p class="english"><strong>- Moatza Megilot Yam Hamelach Participant</strong></p>
+            <p data-i18n="quote2">"Happy holiday everyone!..."</p>
+            <p><strong data-i18n="sigMoatza">- Moatza Megilot Yam Hamelach Participant</strong></p>
           </div>
-
           <div class="testimonial">
-            
-            <p class="english">"Good luck! Thanks to the lovely company who came to us yesterday to make everyone happy with cakes and cookies ❤❤❤😊😊😊 Happy Purim!!"</p>
-            <p class="hebrew" style="display:none" dir="rtl">"בןקר טוב! תודה לחברה מקדם ערבה המקסימים שהגיעו אלינו אתמול לשמח את כולם עם עוגות ועוגיות ❤❤❤😊😊😊 פורים שמח!!"</p>
-            <p class="english"><center>- Moatza Megilot Yam Hamelach Participant</center></p>
+            <p data-i18n="quote3">"Good luck! Thanks to the lovely company..."</p>
+            <p data-i18n="sigMoatza">- Moatza Megilot Yam Hamelach Participant</p>
           </div>
-
           <div class="testimonial">
-            
-            <p class="english">"Exciting to see! Happy Purim 🥳🎊"</p>
-            <p class="hebrew" style="display:none" dir="rtl">"מרגש לראות! פורים שמח 🥳🎊</p>
-            <p class="english"><strong>-  Moatza Megilot Yam Hamelach Participant</strong></p>
+            <p data-i18n="quote4">"Exciting to see! Happy Purim 🥳🎊"</p>
+            <p><strong data-i18n="sigMoatza">- Moatza Megilot Yam Hamelach Participant</strong></p>
           </div>
-
           <div class="testimonial">
-            
-            <p class="english">"Thank you to the sweet residents who came to celebrate Purim 💞"</p>
-            <p class="hebrew" style="display:none" dir="rtl">"תודה לתושבי הקליה המתוקים שבאו לשמח ביום פורים 💞"</p>
-            <p class="english"><strong>- Moatza Megilot Yam Hamelach Participant</strong></p>
+            <p data-i18n="quote5">"Thank you to the sweet residents..."</p>
+            <p><strong data-i18n="sigMoatza">- Moatza Megilot Yam Hamelach Participant</strong></p>
           </div>
         </section>
       </div>
@@ -149,27 +167,7 @@
   <footer>
     <p>&copy; 2025 Project Acheinu. All Rights Reserved.</p>
   </footer>
-
-  <script>
-  function setLanguage(language) {
-    const englishText = document.querySelectorAll('.english');
-    const hebrewText = document.querySelectorAll('.hebrew');
-
-    if (language === 'en') {
-      englishText.forEach(el => {
-        // Spans stay inline (for nav bar), others become block
-        el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
-      });
-      hebrewText.forEach(el => el.style.display = 'none');
-      document.body.dir = "ltr";
-    } else {
-      englishText.forEach(el => el.style.display = 'none');
-      hebrewText.forEach(el => {
-        el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
-      });
-      document.body.dir = "rtl";
-    }
-  }
-</script>
 </body>
 </html>
+
+  

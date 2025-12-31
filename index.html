@@ -17,7 +17,7 @@
     <nav>
       <ul>
         <li>
-          <a href="#home">
+          <a href="index.html">
             <span class="english">Home</span>
             <span class="hebrew" style="display:none">בית</span>
           </a>
@@ -98,26 +98,44 @@
   <footer>
     <p>&copy; 2025 Project Acheinu. All Rights Reserved.</p>
   </footer>
-
   <script>
-    function setLanguage(language) {
-      const englishText = document.querySelectorAll('.english');
-      const hebrewText = document.querySelectorAll('.hebrew');
+  (function() {
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    document.documentElement.className = 'lang-' + savedLanguage;
+  })();
+</script>
+  <script>
+  // 1. Function to switch language and SAVE the choice
+  function setLanguage(language) {
+    const englishText = document.querySelectorAll('.english');
+    const hebrewText = document.querySelectorAll('.hebrew');
 
-      if (language === 'en') {
-        englishText.forEach(el => {
-          el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
-        });
-        hebrewText.forEach(el => el.style.display = 'none');
-        document.body.dir = "ltr";
-      } else {
-        englishText.forEach(el => el.style.display = 'none');
-        hebrewText.forEach(el => {
-          el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block';
-        });
-        document.body.dir = "rtl";
-      }
+    // Save the language choice to the browser's memory
+    localStorage.setItem('preferredLanguage', language);
+
+    if (language === 'en') {
+      englishText.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+      hebrewText.forEach(el => el.style.display = 'none');
+      document.body.dir = "ltr";
+    } else {
+      englishText.forEach(el => el.style.display = 'none');
+      hebrewText.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+      document.body.dir = "rtl";
     }
-  </script>
+  }
+
+  // 2. Logic to run as soon as the page loads
+  window.onload = function() {
+    // Look in the browser's memory for a saved language
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    
+    // If we found a saved language, use it. Otherwise, default to English.
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+    } else {
+      setLanguage('en');
+    }
+  };
+</script>
 </body>
 </html>
